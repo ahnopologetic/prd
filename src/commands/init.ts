@@ -1,18 +1,18 @@
-import { Command, Args } from '@oclif/core'
+import { Args, Command } from '@oclif/core'
 import * as inquirer from 'inquirer'
-import * as fs from 'fs'
-import * as path from 'path'
+import * as fs from 'node:fs'
+import * as path from 'node:path'
 
 export default class Init extends Command {
-  static description = 'Initialize a PRD template interactively'
-
   static args = {
     path: Args.string({
+      default: './docs/base.md',
       description: 'Path to save the PRD file',
       required: false,
-      default: './docs/base.md',
     }),
   }
+
+  static description = 'Initialize a PRD template interactively'
 
   async run(): Promise<void> {
     const { args } = await this.parse(Init)
@@ -26,77 +26,78 @@ export default class Init extends Command {
 
     const questions: inquirer.DistinctQuestion[] = [
       {
-        type: 'input',
-        name: 'title',
-        message: 'Project Title (press enter to skip for now):',
         default: 'Project Title',
+        message: 'Project Title (press enter to skip for now):',
+        name: 'title',
+        type: 'input',
       },
       {
-        type: 'input',
-        name: 'description',
         message: 'Description - What is it?',
+        name: 'description',
+        type: 'input',
       },
       {
-        type: 'input',
-        name: 'problem',
         message: 'Problem - What problem is this solving?',
+        name: 'problem',
+        type: 'input',
       },
       {
-        type: 'input',
-        name: 'why',
         message: 'Why - How do we know this is a real problem and worth solving?',
+        name: 'why',
+        type: 'input',
       },
       {
-        type: 'input',
-        name: 'success',
         message: 'Success - How do we know if we\'ve solved this problem?',
+        name: 'success',
+        type: 'input',
       },
       {
-        type: 'input',
-        name: 'audience',
         message: 'Audience - Who are we building for?',
+        name: 'audience',
+        type: 'input',
       },
       {
-        type: 'input',
-        name: 'what',
         message: 'What - Roughly, what does this look like in the product?',
+        name: 'what',
+        type: 'input',
       },
       {
-        type: 'input',
-        name: 'how',
         message: 'How - What is the experiment plan?',
+        name: 'how',
+        type: 'input',
       },
       {
-        type: 'input',
-        name: 'when',
         message: 'When - When does it ship and what are the milestones?',
+        name: 'when',
+        type: 'input',
       },
     ]
 
     try {
-      let answers = await inquirer.default.prompt(questions)
+      const answers = await inquirer.default.prompt(questions)
 
       // If user skipped the title (kept default), ask if they want to set it now
       if (answers.title === 'Project Title') {
         const confirmTitle = await inquirer.default.prompt([
           {
-            type: 'confirm',
-            name: 'setTitle',
-            message: 'Would you like to set the project title now?',
             default: true,
+            message: 'Would you like to set the project title now?',
+            name: 'setTitle',
+            type: 'confirm',
           },
         ])
 
         if (confirmTitle.setTitle) {
           const titlePrompt = await inquirer.default.prompt([
             {
-              type: 'input',
-              name: 'title',
               message: 'Please enter the project title:',
-              validate: (input: string) => {
+              name: 'title',
+              type: 'input',
+              validate(input: string) {
                 if (input.trim() === '' || input === 'Project Title') {
                   return 'Please enter a valid project title'
                 }
+
                 return true
               },
             },
