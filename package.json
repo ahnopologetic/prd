@@ -1,8 +1,8 @@
 {
-  "name": "prd",
-  "description": "Create a product requirement document ",
-  "version": "0.0.0",
-  "author": "ahnopologetic",
+  "name": "@ahnopologetic/prd",
+  "description": "Create a product requirement document (PRD) interactively",
+  "version": "1.0.0",
+  "author": "ahnopologetic <stahn1995@gmail.com>",
   "bin": {
     "prd": "./bin/run.js"
   },
@@ -10,7 +10,8 @@
   "dependencies": {
     "@oclif/core": "^4",
     "@oclif/plugin-help": "^6",
-    "@oclif/plugin-plugins": "^5"
+    "@oclif/plugin-plugins": "^5",
+    "inquirer": "^12.3.0"
   },
   "devDependencies": {
     "@oclif/prettier-config": "^0.2.1",
@@ -27,7 +28,8 @@
     "oclif": "^4",
     "shx": "^0.3.3",
     "ts-node": "^10",
-    "typescript": "^5"
+    "typescript": "^5",
+    "@types/inquirer": "^9.0.7"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -39,7 +41,17 @@
   ],
   "homepage": "https://github.com/ahnopologetic/prd",
   "keywords": [
-    "oclif"
+    "oclif",
+    "prd",
+    "product requirement document",
+    "product management",
+    "product development",
+    "product design",
+    "product requirements",
+    "product strategy",
+    "product roadmap",
+    "product backlog",
+    "product documentation"
   ],
   "license": "MIT",
   "main": "dist/index.js",
