@@ -16,11 +16,11 @@ Create a product requirement document
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g prd
+$ npm install -g @ahnopologetic/prd
 $ prd COMMAND
 running command...
 $ prd (--version)
-prd/0.0.0 darwin-arm64 node-v22.9.0
+@ahnopologetic/prd/1.0.0 darwin-arm64 node-v22.9.0
 $ prd --help [COMMAND]
 USAGE
   $ prd COMMAND
@@ -29,9 +29,8 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`prd hello PERSON`](#prd-hello-person)
-* [`prd hello world`](#prd-hello-world)
 * [`prd help [COMMAND]`](#prd-help-command)
+* [`prd init [PATH]`](#prd-init-path)
 * [`prd plugins`](#prd-plugins)
 * [`prd plugins add PLUGIN`](#prd-plugins-add-plugin)
 * [`prd plugins:inspect PLUGIN...`](#prd-pluginsinspect-plugin)
@@ -42,48 +41,6 @@ USAGE
 * [`prd plugins uninstall [PLUGIN]`](#prd-plugins-uninstall-plugin)
 * [`prd plugins unlink [PLUGIN]`](#prd-plugins-unlink-plugin)
 * [`prd plugins update`](#prd-plugins-update)
-
-## `prd hello PERSON`
-
-Say hello
-
-```
-USAGE
-  $ prd hello PERSON -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  (required) Who is saying hello
-
-DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ prd hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
-```
-
-_See code: [src/commands/hello/index.ts](https://github.com/ahnopologetic/prd/blob/v0.0.0/src/commands/hello/index.ts)_
-
-## `prd hello world`
-
-Say hello world
-
-```
-USAGE
-  $ prd hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ prd hello world
-  hello world! (./src/commands/hello/world.ts)
-```
-
-_See code: [src/commands/hello/world.ts](https://github.com/ahnopologetic/prd/blob/v0.0.0/src/commands/hello/world.ts)_
 
 ## `prd help [COMMAND]`
 
@@ -104,6 +61,23 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.21/src/commands/help.ts)_
+
+## `prd init [PATH]`
+
+Initialize a PRD template interactively
+
+```
+USAGE
+  $ prd init [PATH]
+
+ARGUMENTS
+  PATH  [default: ./docs/base.md] Path to save the PRD file
+
+DESCRIPTION
+  Initialize a PRD template interactively
+```
+
+_See code: [src/commands/init.ts](https://github.com/ahnopologetic/prd/blob/v1.0.0/src/commands/init.ts)_
 
 ## `prd plugins`
 
