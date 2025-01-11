@@ -1,10 +1,11 @@
 {
   "name": "@ahnopologetic/prd",
+  "private": false,
   "description": "Create a product requirement document (PRD) interactively",
   "version": "1.0.0",
   "author": "ahnopologetic <stahn1995@gmail.com>",
   "bin": {
-    "prd": "./bin/run.js"
+    "prd": "bin/run.js"
   },
   "bugs": "https://github.com/ahnopologetic/prd/issues",
   "dependencies": {
@@ -71,7 +72,10 @@
       }
     }
   },
-  "repository": "ahnopologetic/prd",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahnopologetic/prd.git"
+  },
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
     "lint": "eslint . --ext .ts",
